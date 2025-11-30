@@ -11,15 +11,405 @@
     --neutral-700: hsl(245, 19%, 35%);
     --neutral-900: hsl(248, 70%, 10%);
 
+    /* Orange */
     --orange-500: hsl(7, 88%, 67%);
     --orange-700: hsl(7, 71%, 60%);
 
-    --text-gradient: hsl(7, 86%, 67%) to hsl(0, 0%, 100%);
+    /* Gradient */
+    --text-gradient-start: hsl(7, 86%, 67%);
+    --text-gradient-ends: hsl(0, 0%, 100%);
 
     --font-size: 20px;
-    --font-family: 'Inconsolata', sans-serif;
-    --font-weight-light: 400;
+    --font-family: 'Inconsolata', serif;
     --font-weight-normal: 500;
     --font-weight-bold: 700;
     --font-weight-bolder: 800;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+body {
+    background-color: var(--neutral-900);
+    color: #fff;
+    min-height: 100vh;
+    font-family: var(--font-family);
+}
+
+.image-container {
+    background: url(images/background-desktop.png) no-repeat center center / cover;
+    background-color: var(--neutral-900);
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow-y: hidden;
+    display: grid;
+    place-content: center;
+}
+
+.svg-image {
+    position: absolute;
+}
+
+.svg-image:nth-child(1) {
+    width: 100%;
+}
+
+.svg-image:nth-child(1) img {
+    width: 100%;
+}
+
+.svg-image:nth-child(2) {
+    top: 100px;
+    right: 0;
+}
+
+.svg-image:nth-child(3) {
+    left: 0;
+    bottom: 0;
+}
+
+.svg-image:nth-child(4) {
+    top: -100px;
+    left: 100px;
+}
+
+.svg-image:nth-child(5) {
+    top: 50%;
+    right: 350px;
+}
+
+.headings {
+    text-align: center;
+}
+
+.headings h1 {
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    font-weight: var(--font-weight-bold);
+}
+
+.headings p {
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+}
+
+.gradient-text {
+    background: var(--text-gradient-start);
+    background: linear-gradient(to right, var(--text-gradient-start) 10%, var(--text-gradient-ends) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-email {
+    color: var(--orange-500);
+}
+
+
+/* Uploading avatar and others */
+.form-content {
+    width: 90%;
+    max-width: 800px;
+    padding: 1rem;
+    margin: auto;
+    position: relative;
+    z-index: 20;
+}
+
+.form-content.hide {
+    display: none;
+}
+
+.form-content .logo {
+    margin: 0 auto 2rem auto;
+}
+
+.form-items {
+    margin-bottom: 1.5rem;
+}
+
+.form-items label {
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-items input {
+    background-color: hsla(245, 15%, 58%, 0.2);
+    backdrop-filter: blur(2px) saturate(180%);
+    -webkit-backdrop-filter: blur(2px) saturate(180%);
+    color: var(--neutral-0);
+    width: 100%;
+    padding: 1rem 0.5rem;
+    display: block;
+    border: 1px solid var(--neutral-500);
+    border-radius: 0.5rem;
+    transition: all 200ms ease;
+}
+
+.form-items input:hover {
+    background-color: hsla(245, 15%, 58%, 0.6);
+}
+
+.form-items input.error {
+    border: 1px solid var(--neutral-500);
+}
+
+.form-items .upload-hint {
+    color: var(--neutral-300);
+    font-size: 0.9rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.form-items .upload-hint.error {
+    color: var(--orange-500);
+}
+
+.form-items .text-hint {
+    color: var(--neutral-300);
+    font-size: 0.9rem;
+    display: none;
+    gap: 0.5rem;
+}
+
+.form-items .text-hint.error {
+    color: var(--orange-500);
+    display: flex;
+}
+
+.form-items .upload-box {
+    cursor: pointer;
+    background-color: hsla(245, 15%, 58%, 0.2);
+    backdrop-filter: blur(2px) saturate(180%);
+    -webkit-backdrop-filter: blur(2px) saturate(180%);
+    color: var(--neutral-300);
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: 2px dashed var(--neutral-500);
+    border-radius: 0.35rem;
+    transition: all 200ms ease;
+}
+
+.form-items .upload-box:hover {
+    background-color: hsla(245, 15%, 58%, 0.6);
+}
+
+.form-items .upload-box .file-input {
+    display: none;
+}
+
+.form-items .upload-box .uploaded-image {
+    background-color: var(--neutral-700);
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--neutral-500);
+    border-radius: 0.5rem;
+    display: grid;
+    place-content: center;
+}
+
+.form-items .upload-box .message-action.hide {
+    display: none;
+}
+
+.form-items .upload-box .message-action button {
+    cursor: pointer;
+    background-color: hsla(245, 15%, 58%, 0.6);
+    color: var(--neutral-300);
+    padding: 0.4rem;
+    border: 0;
+    border-radius: 0.25rem;
+}
+
+.form-items .upload-box .file-actions {
+    display: none;
+}
+
+.form-items .upload-box .file-actions.show {
+    display: block;
+}
+
+.form-items .upload-box .file-actions button {
+    cursor: pointer;
+    background-color: var(--neutral-500);
+    color: var(--neutral-300);
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.4rem;
+}
+/* end of uploading avatar and others */
+
+/* start ticket generation*/
+form .generate-ticket {
+    cursor: pointer;
+    background-color: var(--orange-500);
+    padding: 1rem;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-bold);
+    border-radius: 0.75rem;
+    border: 0;
+    transition: all 200ms ease;
+}
+
+form .generate-ticket:hover {
+    background-color: var(--orange-700);
+}
+
+.display-data {
+    width: 90%;
+    max-width: 800px;
+    padding: 1rem;
+    margin: auto;
+    position: relative;
+    z-index: 20;
+}
+
+.display-data .logo {
+    margin: 0 auto 2rem auto;
+}
+
+.display-data .headings {
+    margin-bottom: 6rem;
+}
+
+.display-data .headings p {
+    padding: 0.75rem;
+}
+
+.display-data .ticket-container {
+    background-color: var(--neutral-900);
+    background: url(./assets/images/pattern-ticket.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    aspect-ratio: 16 / 9;
+    max-width: 500px;
+    padding: 1rem;
+    margin: auto;
+    position: relative;
+    border-radius: 0.5rem;
+}
+
+.display-data .ticket-container .logo {
+    margin-bottom: 0.5rem;
+    font-size: 2.75rem;
+    font-weight: var(--font-weight-bold);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.display-data .ticket-container .date {
+    color: var(--neutral-300);
+    padding-left: 3.6rem;
+    margin-bottom: 4rem;
+}
+
+.display-data .ticket-container .ticket-user {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.display-data .ticket-container .ticket-user img {
+    width: 65px;
+    border-radius: 0.75rem;
+}
+
+.display-data .ticket-container .ticket-user #display-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.display-data .ticket-container .ticket-user .github-username {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.display-data .ticket-container .ticket-user .github-username img {
+    width: 20px;
+}
+
+.display-data .ticket-container .ticket-number {
+    color: var(--neutral-300);
+    font-size: 1.75rem;
+    position: absolute;
+    right: 6px;
+    top: 36%;
+    transform: rotate(90deg);
+}
+/* end of ticket generation*/
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 540px) {
+    .svg-image:nth-child(2) {
+        top: 50px;
+    }
+
+    .svg-image:nth-child(4) {
+        top: -80px;
+        left: -30px;
+    }
+
+    .headings h1 {
+        font-size: 2rem;
+    }
+
+    .image-container {
+        overflow-y: auto;
+    }
+
+    .form-content {
+        padding: 1rem 0;
+    }
+
+    .display-data {
+        padding: 0;
+    }
+
+    .display-data .headings p {
+        padding: 0;
+    }
+
+    .display-data  .ticket-container .logo {
+        margin-bottom: 0;
+        font-size: 1.5rem;
+    }
+
+    .display-data .ticket-container .date {
+        margin-bottom: 2rem;
+    }
+
+    .display-data .ticket-container .ticket-user img {
+        width: 45px;
+    }
+
+    .display-data .ticket-container .ticket-user #display-name {
+        font-size: 1.25rem;
+    }
+
+    .display-data .ticket-container .ticket-number {
+        right: -8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .form-content {
+        height: 620px;
+    }
 }

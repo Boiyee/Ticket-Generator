@@ -5,53 +5,136 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap">
+
+  <link rel="stylesheet" href="./style.css">
   <title>Frontend Mentor | Conference ticket generator</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  <div class="image-container">
+    <div class="svg-image">
+      <img src="./assets/images/pattern-lines.svg" alt="">
+    </div>
+    <div class="svg-image">
+      <img src="./assets/images/pattern-squiggly-line-top.svg" alt="">
+    </div>
+    <div class="svg-image">
+      <img src="./assets/images/pattern-squiggly-line-bottom-desktop.svg" alt="">
+    </div>
+    <div class="svg-image">
+      <img src="./assets/images/pattern-circle.svg" alt="">
+    </div>
+    <div class="svg-image">
+      <img src="./assets/images/pattern-circle.svg" alt="">
+    </div>
 
-  <!-- Form starts -->
+    <div class="content-container">
+      <div id="form-content" class="form-content">
+        <img class="logo" src="./assets/images/logo-full.svg" alt="">
 
-  Your Journey to Coding Conf 2025 Starts Here!
+        <div class="headings">
+          <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+          <p>Secure your spot at next year's biggest coding conference.</p>
+        </div>
 
-  Secure your spot at next year's biggest coding conference.
+        <form id="ticket-form"> <!-- Updated ID to match script.js -->
+          <div class="form-items">
+            <label for="file-input">Upload Avatar</label>
+            <div id="drop-area" class="upload-box">
+              <input type="file" id="file-input" class="file-input" accept="image/png, image/jpeg">
+              <img id="uploaded-image" class="uploaded-image" src="./assets/images/icon-upload.svg" alt="">
+              <div id="message-action" class="message-action">Drag and drop or click to upload</div>
+              <div id="file-actions" class="file-actions">
+                <button type="button" id="remove-image">Remove image</button>
+                <button type="button" id="change-image">Change image</button>
+              </div>
+            </div>
+            <p id="upload-hint" class="upload-hint">
+              <!-- svg icon -->
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="#D1D0D5" stroke-linecap="round" stroke-linejoin="round" d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" /><path fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z"/><path stroke="#D1D0D5" stroke-linecap="round" stroke-linejoin="round" d="M8.004 10.462V7.596M8 5.569v-.042" /></svg>
+               Upload your photo (JPG or PNG, max size: 500kb)
+            </p>
+          </div>
 
-  Upload Avatar
-  Drag and drop or click to upload
-  Upload your photo (JPG or PNG, max size: 500KB).
+          <div class="form-items">
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" class="required">
+            <p class="text-hint">
+              <!-- svg icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="#f57261" stroke-linecap="round" stroke-linejoin="round" d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" /><path fill="#f57261" d="M8.004 10.462V7.596ZM8 5.57v-.042Z"/><path stroke="#f57261" stroke-linecap="round" stroke-linejoin="round" d="M8.004 10.462V7.596M8 5.569v-.042" /></svg>
+              Please enter your full name.
+            </p>
+          </div>
 
-  Full Name
+          <div class="form-items">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="required">
+            <p class="text-hint">
+              <!-- svg icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="#f57261" stroke-linecap="round" stroke-linejoin="round" d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" /><path fill="#f57261" d="M8.004 10.462V7.596ZM8 5.57v-.042Z"/><path stroke="#f57261" stroke-linecap="round" stroke-linejoin="round" d="M8.004 10.462V7.596M8 5.569v-.042" /></svg>
+              Please enter your valid email address.
+            </p>
+          </div>
 
-  Email Address
-  example@email.com
+          <div class="form-items">
+            <label for="github-username">GitHub Username</label> <!-- Updated ID to match script.js -->
+            <input type="text" id="github-username" class="required">
+            <p class="text-hint">
+              <!--svg icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="#f57261" stroke-linecap="round" stroke-linejoin="round" d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" /><path fill="#f57261" d="M8.004 10.462V7.596ZM8 5.57v-.042Z"/><path stroke="#f57261" stroke-linecap="round" stroke-linejoin="round" d="M8.004 10.462V7.596M8 5.569v-.042" /></svg>
+              Please enter a valid username.
+            </p>
+          </div>
 
-  GitHub Username
-  @yourusername
+          <button type="submit" id="generate-ticket" class="generate-ticket">Generate My Ticket</button>
 
-  Generate My Ticket
+        </form>
+      </div>
 
-  <!-- Form ends -->
+      <!-- Generated tickets starts -->
+      <div id="display-data" class="display-data" style="display: none;">
+        <img class="logo" src="./assets/images/logo-full.svg" alt="">
 
-  <!-- Generated tickets starts -->
+        <div class="headings">
+          <h1>Congrats, <span id="header-name" class="gradient-text">! Your Ticket is ready.</span></h1>
+          <p>We've emailed your ticket to <span id="display-email" class="header-email"></span> and will send updates in the run up to the event.</p>
+        </div>
+        
+        <div class="ticket-container">
+          <div class="logo">
+            <img src="./assets/images/logo-mark.svg" alt="">
+            Coding Conf
+          </div>
 
-  Congrats, <!-- Full Name -->! Your ticket is ready.
+          <p class="date">Jan 31, 2025 / Austin, TX</p>
 
-  We've emailed your ticket to <!-- Email Address --> and will send updates in the run up to the event.
+          <div class="ticket-user">
+            <img id="display-image" src="" alt="User Avatar">
+            <div class="user-info">
+              <span id="display-name"></span>
+              <div class="github-username">
+                <img src="./assets/images/icon-github.svg" alt="GitHub Icon">
+                <span id="display-github"></span>
+              </div>
+            </div>
+          </div>
 
-  Coding Conf
-  Jan 31, 2025 / Austin, TX
+          <p class="ticket-number">#01609</p>
+        </div>
+      </div>
+      <!-- Generated tickets ends-->
+    </div>
+  </div>
 
-  <!-- Generated tickets ends -->
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+
+  <script src="./script.js"></script>
 </body>
 </html>
